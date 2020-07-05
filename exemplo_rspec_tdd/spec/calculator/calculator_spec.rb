@@ -1,25 +1,23 @@
 require 'calculator'
 
 describe Calculator do
-  it 'uses sum method for 2 numbers' do
-    # Arrange
-    calc = Calculator.new
+  context 'use sum method for 2 numbers' do
+    it 'with positive numbers' do
+      calc = Calculator.new
+      result = calc.sum(5, 7)
+      expect(result).to eq(12)
+    end
 
-    # Act
-    result = calc.sum(5, 7)
+    it 'with negative and positive numbers' do
+      calc = Calculator.new
+      result = calc.sum(-5, 7)
+      expect(result).to eq(2)
+    end
 
-    # Assert
-    expect(result).to eq(12)
-  end
-
-  it 'uses sum method for 2 negative numbers' do
-    # Arrange
-    calc = Calculator.new
-
-    # Act
-    result = calc.sum(-5, 7)
-
-    # Assert
-    expect(result).to eq(2)
+    it 'with negative numbers' do
+      calc = Calculator.new
+      result = calc.sum(-5, -7)
+      expect(result).to eq(-12)
+    end
   end
 end
