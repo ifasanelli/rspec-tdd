@@ -1,11 +1,21 @@
 require 'pessoa'
 
 describe 'Atributos' do
-  before(:example) do
-    @pessoa = Pessoa.new
-  end
+  # before(:example) do
+  #   puts '>>> ANTES de CADA teste'
+  #   @pessoa = Pessoa.new
+  # end
 
-  after(:example) do
+  # after(:example) do
+  #   puts '>>> DEPOIS de CADA teste'
+  # end
+
+  around(:example) do |test|
+    puts '>>> ANTES de CADA teste'
+    @pessoa = Pessoa.new
+
+    test.run
+
     puts '>>> DEPOIS de CADA teste'
   end
 
